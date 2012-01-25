@@ -4,7 +4,9 @@ include ESpeak
 
 get '/install' do
   filename = ''
-  files = (1..10).to_a + ['15 seconds break', 'start', 'serie 1', 'serie 2', 'serie 3', '2 minutes break', "Nice, not great, but nice. I'm sure next time will be better"]
+  files = ['That\'s it. Excelant. Congratulations!', '2 minutes break']
+  files += (1..3).to_a.map {|number| "Serie #{number}. Prepare to exercise number 1." }
+  files += (2..10).to_a.map {|number| "15 seconds break. Prepare to exercise number #{number}." }
   files.each do |name|    
     text = name.to_s
     short_filename = text.gsub(' ', '-').gsub(/[\,\'\.]/, '')
